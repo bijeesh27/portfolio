@@ -18,7 +18,7 @@ const About = () => {
           style={{ display: "flex", justifyContent: "center", width: "100%" }}
         >
           <img
-            src="src/assets/images/profile.jpg"
+            src="public/images/profile.jpg"
             alt="Profile"
             style={{
               borderRadius: "var(--radius)",
