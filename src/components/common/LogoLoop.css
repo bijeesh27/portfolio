@@ -1,0 +1,103 @@
+.logo-loop-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.logo-loop-track {
+  display: flex;
+  white-space: nowrap;
+  gap: var(--loop-gap, 40px);
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--item-height, 48px);
+  flex-shrink: 0;
+}
+
+.logo-item img, .logo-item svg {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+.logo-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.scale-on-hover .logo-item:hover {
+  transform: scale(1.1);
+}
+
+/* Horizontal Animations */
+.logo-loop-track.left {
+  animation: scroll-left var(--loop-speed, 40s) linear infinite;
+}
+
+.logo-loop-track.right {
+  animation: scroll-right var(--loop-speed, 40s) linear infinite;
+}
+
+/* Vertical Animations */
+.logo-loop-container.vertical {
+  flex-direction: column;
+}
+
+.logo-loop-track.up {
+  flex-direction: column;
+  animation: scroll-up var(--loop-speed, 40s) linear infinite;
+}
+
+.logo-loop-track.down {
+  flex-direction: column;
+  animation: scroll-down var(--loop-speed, 40s) linear infinite;
+}
+
+.logo-loop-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - (var(--loop-gap) / 2))); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(calc(-50% - (var(--loop-gap) / 2))); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(calc(-50% - (var(--loop-gap) / 2))); }
+}
+
+@keyframes scroll-down {
+  0% { transform: translateY(calc(-50% - (var(--loop-gap) / 2))); }
+  100% { transform: translateY(0); }
+}
+
+.fade-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--mask-color) 0%, transparent 15%, transparent 85%, var(--mask-color) 100%);
+  z-index: 2;
+}
+
+.fade-mask-v {
+  background: linear-gradient(to bottom, var(--mask-color) 0%, transparent 15%, transparent 85%, var(--mask-color) 100%);
+}

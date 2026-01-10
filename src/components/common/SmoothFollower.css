@@ -1,0 +1,36 @@
+.smooth-follower-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999; /* Ensure it's above everything */
+  overflow: hidden;
+}
+
+.follower-dot {
+  position: absolute;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  transform: translate(-50%, -50%);
+}
+
+.follower-border {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #000;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* Dark mode overrides - relying on 'dark' class on body or html */
+.dark .follower-dot {
+  background-color: #fff;
+}
+
+.dark .follower-border {
+  border-color: #fff;
+}
