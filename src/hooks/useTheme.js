@@ -3,19 +3,19 @@ import { useState, useEffect } from 'react';
 const useTheme = () => {
   const [theme, setTheme] = useState('dark');
 
-  // const toggleTheme = () => {
-  //   if (theme === 'light') {
-  //     setTheme('dark');
-  //     document.documentElement.classList.add('dark');
-  //     localStorage.setItem('theme', 'dark');
-  //   } else {
-  //     setTheme('light');
-  //     document.documentElement.classList.remove('dark');
-  //     localStorage.setItem('theme', 'light');
-  //   }
+  const toggleTheme = () => {
+    // if (theme === 'light') {
+    //   setTheme('dark');
+    //   document.documentElement.classList.add('dark');
+    //   localStorage.setItem('theme', 'dark');
+    // } else {
+    //   setTheme('light');
+    //   document.documentElement.classList.remove('dark');
+    //   localStorage.setItem('theme', 'light');
+    // }
 
 
-// };
+};
      localStorage.setItem('theme', 'dark');
 
   useEffect(() => {
