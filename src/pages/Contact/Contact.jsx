@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Card from "../../components/ui/Card";
 import Button from "../../components/common/Button";
-import { sendEmail } from "../../services/email.service";
 import { EMAIL_ADDRESS, SOCIAL_LINKS } from "../../utils/constants";
 
 const Contact = () => {
@@ -24,9 +23,28 @@ const Contact = () => {
     setStatus(null);
 
     try {
-      await sendEmail(formData);
-      setStatus({ type: "success", message: "Message sent successfully!" });
-      setFormData({ name: "", email: "", message: "" });
+      const formDataToSend = new FormData();
+      formDataToSend.append(
+        "access_key",
+        "5cc297e3-1521-41bf-9921-c55465de5c2a"
+      );
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("message", formData.message);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus({ type: "success", message: "Message sent successfully!" });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus({ type: "error", message: "Failed to send message." });
+      }
     } catch (error) {
       setStatus({ type: "error", message: "Failed to send message." });
     } finally {
