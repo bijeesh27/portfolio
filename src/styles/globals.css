@@ -11,8 +11,9 @@
   --input: #e5e5e5;
   --ring: #000000;
   --radius: 0rem; /* sharper, more modern look */
-  
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .dark {
@@ -44,7 +45,10 @@ body {
   overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
-img, video, canvas, svg {
+img,
+video,
+canvas,
+svg {
   max-width: 100%;
   height: auto;
   display: block;
@@ -81,7 +85,7 @@ img, video, canvas, svg {
   .container {
     padding: 0 1rem;
   }
-  
+
   .section {
     padding: 3rem 0;
   }
@@ -90,7 +94,8 @@ img, video, canvas, svg {
     font-size: 1.75rem;
   }
 
-  button, .btn {
+  button,
+  .btn {
     font-size: 16px;
     padding: 0.6em 1.4em;
   }
@@ -101,7 +106,8 @@ img, video, canvas, svg {
     font-size: 1.5rem;
   }
 
-  button, .btn {
+  button,
+  .btn {
     font-size: 14px;
     padding: 0.5em 1.2em;
   }
@@ -112,7 +118,8 @@ a {
   color: inherit;
 }
 
-button, .btn {
+button,
+.btn {
   color: #090909;
   padding: 0.7em 1.7em;
   font-size: 18px;
@@ -129,18 +136,38 @@ button, .btn {
   font-weight: 500;
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
   border: 1px solid white;
   opacity: 1;
 }
 
-button:active, .btn:active {
+button:active,
+.btn:active {
   box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
-.dark button, .dark .btn {
+.dark button,
+.dark .btn {
   background: #1e293b;
   border-color: #334155;
   color: #f8fafc;
   box-shadow: 4px 4px 8px #0a0f1a, -4px -4px 8px #1e293b;
+}
+
+/* Scroll animations */
+.scroll-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
 }

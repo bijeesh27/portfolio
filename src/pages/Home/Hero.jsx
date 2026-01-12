@@ -33,7 +33,7 @@ const Hero = () => {
           padding: '0 1rem'
         }}>
           <ScrambledText duration={1.5} speed={0.8} scrambleChars=".:">
-            Full Stack Developer | Problem Solver dedicated to building high-quality web applications.
+            Full-Stack Developer | Passionate About Clean Code, Scalable Systems & Problem Solving
           </ScrambledText>
         </div>
         <Link to="/projects" style={{ display: 'inline-block' }}>

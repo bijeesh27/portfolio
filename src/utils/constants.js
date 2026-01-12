@@ -1,4 +1,4 @@
-export const APP_NAME = "My Portfolio";
+export const APP_NAME = "Bijeesh Biju";
 export const AUTHOR_NAME = "Bijeesh";
 export const EMAIL_ADDRESS = "bijeeshbiju3669@gmail.com";
 export const SOCIAL_LINKS = {
