@@ -12,6 +12,23 @@ export const projects = [
   },
   {
     id: 2,
+    title: "RupeeRoute – Expense Tracker",
+    description:
+      "A full-stack expense tracking application that helps users monitor income and expenses in real time, visualize spending through interactive charts, and manage transactions efficiently with a clean, user-friendly interface.",
+    image: "/images/rupee.png",
+    techStack: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+    ],
+    demoLink: "https://rupeeroute.vercel.app",
+    repoLink: "https://github.com/bijeesh27/finance-tracker-pro",
+    featured: true,
+  },
+  {
+    id: 3,
     title: "OLX Clone",
     description:
       "A classifieds marketplace web app inspired by OLX, where users can post ads, browse products, and connect with sellers.",
@@ -22,7 +39,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Netflix Clone",
     description:
       "A Netflix-inspired streaming platform UI that displays movies and TV shows with dynamic data and responsive design.",
@@ -33,7 +50,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 4,
+    id: 5,
     title: "Todo App",
     description:
       "A simple and efficient todo application for managing daily tasks with a clean and responsive UI.",
@@ -45,7 +62,7 @@ export const projects = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "User & Admin Authentication System",
     description:
       "A secure authentication system with separate user and admin roles, built using Node.js, Express, EJS, and MongoDB.",
