@@ -9,18 +9,31 @@
   top: 0;
   background-color: var(--background);
   z-index: 50;
+  max-width: 100%;
 }
 
 .navbar-brand {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-right: 10%;
   font-size: 1.25rem;
   font-weight: bold;
   color: var(--primary);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
 }
 
 .navbar-content {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  padding-left: 15%;
 }
 
 .nav-links {
@@ -30,11 +43,28 @@
 }
 
 .nav-links a {
+  text-decoration: none;
+  color: inherit;
   font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
   transition: color 0.2s;
 }
 
 .nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a:focus {
+  outline: none;
+}
+
+.nav-links a:focus-visible {
+  outline: none;
+}
+
+.nav-links a:active {
   color: var(--primary);
 }
 
@@ -47,6 +77,25 @@
   display: none;
   font-size: 1.5rem;
   padding: 0.5rem;
+  background: none;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  outline: none;
+}
+
+.mobile-menu-button:focus {
+  outline: none;
+  background: none;
+  background-color: transparent;
+}
+
+.mobile-menu-button:active {
+  background: none;
+  background-color: transparent;
 }
 
 .mobile-menu {
@@ -56,6 +105,18 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0 1rem;
+    justify-content: space-between;
+  }
+
+  .navbar-brand {
+    flex: 0;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+
+  .navbar-content {
+    flex: 0;
+    padding-left: 0;
   }
 
   .nav-links {
@@ -86,13 +147,26 @@
 
   .mobile-menu a {
     display: block;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    color: inherit;
     padding: 0.75rem 1rem;
     font-weight: 500;
     border-radius: 0.5rem;
+    cursor: pointer;
     transition: background-color 0.2s;
   }
 
   .mobile-menu a:hover {
+    background-color: var(--card);
+  }
+
+  .mobile-menu a:focus {
+    outline: none;
+  }
+
+  .mobile-menu a:active {
     background-color: var(--card);
   }
 }

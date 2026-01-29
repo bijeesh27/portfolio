@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import useTheme from "../../hooks/useTheme";
 import { APP_NAME } from "../../utils/constants";
 import "./Navbar.css";
@@ -16,20 +15,50 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    closeMobileMenu();
+
+    if (sectionId === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const navbarHeight = 64; // Height of the sticky navbar
+      const sectionTop = section.offsetTop - navbarHeight;
+      window.scrollTo({ top: sectionTop, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <nav className="navbar">
-        <Link to="/" className="navbar-brand">
+        <div
+          className="navbar-brand"
+          onClick={(e) => scrollToSection(e, "home")}
+        >
           {APP_NAME}
-        </Link>
+        </div>
 
         <div className="navbar-content">
           <div className="nav-links">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/skills">Skills</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/contact">Contact</Link>
+            <a href="#home" onClick={(e) => scrollToSection(e, "home")}>
+              Home
+            </a>
+            <a href="#about" onClick={(e) => scrollToSection(e, "about")}>
+              About
+            </a>
+            <a href="#skills" onClick={(e) => scrollToSection(e, "skills")}>
+              Skills
+            </a>
+            <a href="#projects" onClick={(e) => scrollToSection(e, "projects")}>
+              Projects
+            </a>
+            <a href="#contact" onClick={(e) => scrollToSection(e, "contact")}>
+              Contact
+            </a>
           </div>
 
           {/* <button onClick={toggleTheme} className="theme-toggle">
@@ -43,21 +72,21 @@ const Navbar = () => {
       </nav>
 
       <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
-        <Link to="/" onClick={closeMobileMenu}>
+        <a href="#home" onClick={(e) => scrollToSection(e, "home")}>
           Home
-        </Link>
-        <Link to="/about" onClick={closeMobileMenu}>
+        </a>
+        <a href="#about" onClick={(e) => scrollToSection(e, "about")}>
           About
-        </Link>
-        <Link to="/skills" onClick={closeMobileMenu}>
+        </a>
+        <a href="#skills" onClick={(e) => scrollToSection(e, "skills")}>
           Skills
-        </Link>
-        <Link to="/projects" onClick={closeMobileMenu}>
+        </a>
+        <a href="#projects" onClick={(e) => scrollToSection(e, "projects")}>
           Projects
-        </Link>
-        <Link to="/contact" onClick={closeMobileMenu}>
+        </a>
+        <a href="#contact" onClick={(e) => scrollToSection(e, "contact")}>
           Contact
-        </Link>
+        </a>
       </div>
     </>
   );
