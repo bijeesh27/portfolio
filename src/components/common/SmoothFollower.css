@@ -9,6 +9,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .smooth-follower-container {
+    display: none;
+  }
+}
+
 .follower-dot {
   position: absolute;
   border-radius: 50%;
@@ -23,7 +29,9 @@
   border-radius: 50%;
   border: 1px solid #000;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease;
+  transition:
+    width 0.3s ease,
+    height 0.3s ease;
 }
 
 /* Dark mode overrides - relying on 'dark' class on body or html */
